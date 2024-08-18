@@ -7,19 +7,31 @@ import { useForm, Controller } from "react-hook-form"
 
 export const Register = () => {
     const { register, getValues, control } = useForm() 
-    const handleSubmit = (event) => {
+
+    const handleSubmit = async (event) => {
         event.preventDefault();
         const formValues = getValues()
 
-        const formattedValues = { ...formValues, date: formValues.date.$d.toISOString()}
-        console.log(formattedValues, 'formvalues');
+        //const formattedValues = { ...formValues, date: formValues.date?.$d?.toISOString()}
+        const formattedValues = { ...formValues }
+                
+        fetch('http://localhost:3000/api/create/user', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formattedValues)
+        })
   }
 
     return (
         <form onSubmit={handleSubmit}>
+            <InputLabel htmlFor="my-input">Name</InputLabel>
+            <TextField id="my-input" aria-describedby="my-helper-text" {...register("name")}/>
             <InputLabel htmlFor="my-input">Email address</InputLabel>
             <TextField id="my-input" aria-describedby="my-helper-text" {...register("email")}/>
+            <InputLabel htmlFor="my-input">Phone Number</InputLabel>
+            <TextField id="my-input" aria-describedby="my-helper-text" {...register("telephone")}/>
 
+            {/* Date Component
             <Controller
                 name="date"
                 control={control}
@@ -40,7 +52,7 @@ export const Register = () => {
                         </DemoContainer>
                     </LocalizationProvider>
                 }
-            />
+            /> */}
             
             <Button type='submit'>Submit</Button>
         </form>
