@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { Drawer, Box, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Button, Link} from '@mui/material'
-import { Register } from '../Components/Register';
+import TopAppBar from '../Components/TopAppBar';
 
 
 
@@ -9,6 +8,7 @@ export default function Root() {
   
     return (
       <div>
+        <TopAppBar />
         <p> Root page </p>
       </div>
     );
