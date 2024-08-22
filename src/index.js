@@ -9,6 +9,7 @@ import Root from './routes/root';
 import RegisterRoute from './routes/register';
 import { GetAllDogs } from './routes/dogs';
 import TopAppBar from './Components/TopAppBar';
+import { CreateDog } from './Dogs/CreateDog';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,11 @@ const router = createBrowserRouter([
   {
     path: "/dogs",
     element: <GetAllDogs />
+  },
+
+  {
+    path: "/dog/create",
+    element: <CreateDog />
   },
 ]);
 
