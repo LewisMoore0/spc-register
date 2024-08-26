@@ -8,7 +8,6 @@ export default function Root() {
   
     return (
       <div>
-        <TopAppBar />
         <p> Root page </p>
       </div>
     );
