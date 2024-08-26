@@ -10,6 +10,8 @@ import RegisterRoute from './routes/register';
 import { GetAllDogs } from './routes/dogs';
 import TopAppBar from './Components/TopAppBar';
 import { CreateDog } from './Dogs/CreateDog';
+import { CreateOwner } from './Owners/CreateOwner';
+import { GetAllOwners } from './routes/owners';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +32,15 @@ const router = createBrowserRouter([
   {
     path: "/dog/create",
     element: <CreateDog />
+  },
+  {
+    path: "/owners",
+    element: <GetAllOwners />
+  },
+
+  {
+    path: "/owner/create",
+    element: <CreateOwner />
   },
 ]);
 

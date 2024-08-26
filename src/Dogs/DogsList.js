@@ -6,7 +6,7 @@ export const DogsList = () => {
 
     useEffect(() => {
         if (data) return
-        fetch('http://localhost:3000/api/dogs').then(res => res.json()).then(data => setData(data.dogs))
+        fetch('http://localhost:3000/api/dogs').then(res => res.json()).then(data => setData(data))
     }, [])
 
     return (
