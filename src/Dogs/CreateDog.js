@@ -1,9 +1,5 @@
-import { Button, InputLabel, TextField, Autocomplete} from '@mui/material' 
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
-import { useForm, Controller } from "react-hook-form"
+import { Button, InputLabel, TextField, Box} from '@mui/material' 
+import { useForm } from "react-hook-form"
 
 export const CreateDog = () => {
     const { register, getValues, control } = useForm() 
@@ -21,13 +17,15 @@ export const CreateDog = () => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <InputLabel htmlFor="my-input">Name</InputLabel>
-            <TextField id="my-input" aria-describedby="my-helper-text" {...register("name")}/>
-            <InputLabel htmlFor="my-input">Owner</InputLabel>
-            <TextField id="my-input" aria-describedby="my-helper-text" {...register("owner")}/>
-            <InputLabel htmlFor="my-input">Breed</InputLabel>
-            <TextField id="my-input" aria-describedby="my-helper-text" {...register("breed")}/>
-            <Button type='submit'>Submit</Button>
+            <InputLabel sx={{ m: 1 }}>Name:</InputLabel>
+            <TextField sx={{ m: 1, width: 300 }} {...register("name")}/>
+            <InputLabel sx={{ m: 1 }}>Owner:</InputLabel>
+            <TextField sx={{ m: 1, width: 300 }}{...register("owner")}/>
+            <InputLabel sx={{ m: 1 }}>Breed:</InputLabel>
+            <TextField sx={{ m: 1, width: 300 }}{...register("breed")}/>
+            <Box>
+                <Button sx={{ m: 1, width: 100 }} variant="contained" type='submit'>Submit</Button>
+            </Box>
         </form>
     )
 }

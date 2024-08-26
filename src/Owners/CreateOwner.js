@@ -1,11 +1,6 @@
-import { Button, InputLabel, TextField, Autocomplete} from '@mui/material' 
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
-import { useForm, Controller } from "react-hook-form"
+import { Button, InputLabel, TextField, Box} from '@mui/material' 
+import { useForm } from "react-hook-form"
 import React, { useState, useEffect } from 'react';
-import { useTheme } from '@mui/material/styles';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
@@ -46,15 +41,15 @@ export const CreateOwner = () => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <InputLabel htmlFor="my-input">Name</InputLabel>
-            <TextField id="my-input" aria-describedby="my-helper-text" {...register("name")}/>
-            <InputLabel htmlFor="my-input">Address</InputLabel>
-            <TextField id="my-input" aria-describedby="my-helper-text" {...register("address")}/>
-            <InputLabel htmlFor="my-input">Telephone</InputLabel>
-            <TextField id="my-input" aria-describedby="my-helper-text" {...register("telephone")}/>
-            <InputLabel htmlFor="my-input">Dogs</InputLabel>
+            <InputLabel sx={{ m: 1}}>Name:</InputLabel>
+            <TextField sx={{ m: 1, width: 300 }}{...register("name")}/>
+            <InputLabel sx={{ m: 1, width: 300 }}>Address:</InputLabel>
+            <TextField sx={{ m: 1, width: 300 }} {...register("address")}/>
+            <InputLabel sx={{ m: 1, width: 300 }}>Telephone:</InputLabel>
+            <TextField sx={{ m: 1, width: 300 }}{...register("telephone")}/>
+            <InputLabel sx={{ m: 1, width: 300 }}>Dogs:</InputLabel>
             <FormControl sx={{ m: 1, width: 300 }}>
-                <InputLabel id="demo-multiple-name-label">Dogs</InputLabel>
+                <InputLabel>Select...</InputLabel>
                 <Select {...register("Dogs")}
                 multiple
                 onChange={handleChange}
@@ -71,7 +66,9 @@ export const CreateOwner = () => {
                 ))}
                 </Select>
             </FormControl>
-            <Button type='submit'>Submit</Button>
+            <Box>
+                <Button sx={{ m: 1, width: 100 }} variant="contained" type='submit'>Submit</Button>
+            </Box>
         </form>
     )
 }
