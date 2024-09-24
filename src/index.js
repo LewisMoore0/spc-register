@@ -12,6 +12,7 @@ import TopAppBar from './Components/TopAppBar';
 import { CreateDog } from './Dogs/CreateDog';
 import { CreateOwner } from './Owners/CreateOwner';
 import { GetAllOwners } from './routes/owners';
+import { OwnerShow } from './Owners/OwnerShow';
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
     path: "/owner/create",
     element: <CreateOwner />
   },
+  {
+    path: "/owner/:id",
+    element: <OwnerShow />
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
