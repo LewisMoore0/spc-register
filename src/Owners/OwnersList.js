@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { Card, CardContent, CardActions, Button } from '@mui/material'
+import { useNavigate } from "react-router-dom";
 
+  
 export const OwnersList = () => {
 
     const [data, setData] = useState(null)
+    const navigate = useNavigate()
 
     useEffect(() => {
         if (data) return
@@ -12,12 +16,15 @@ export const OwnersList = () => {
     return (
         data?.map((owner) => {
             return (
-                <>
-                    <p>Name: {owner.name}</p>
-                    <p>Address: {owner.address}</p>
-                    <p>Telephone: {owner.telephone}</p>
-                    <p>Dogs: dogs...</p>
-                </>
+                <Card variant="outlined" sx={{ m: 1 }}>
+                    <CardContent>
+                        <p>Name: {owner.name}</p>
+                        <p>Address: {owner.address}</p>
+                        <p>Telephone: {owner.telephone}</p>
+                        <p>Dogs: {owner.dogs.map((dog) => dog.name + ', ')}</p>
+                    </CardContent>
+                    <Button size="small" sx={{ m: 1 }} onClick={() => navigate('/owners/someId')}>Learn More</Button>
+                </Card>
             )
         })
     )
