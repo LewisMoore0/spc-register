@@ -44,7 +44,7 @@ const router = createBrowserRouter([
     element: <CreateOwner />
   },
   {
-    path: "/owner/:id",
+    path: "/owners/:id",
     element: <OwnerShow />
   }
 ]);

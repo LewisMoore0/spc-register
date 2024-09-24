@@ -23,7 +23,7 @@ export const OwnersList = () => {
                         <p>Telephone: {owner.telephone}</p>
                         <p>Dogs: {owner.dogs.map((dog) => dog.name + ', ')}</p>
                     </CardContent>
-                    <Button size="small" sx={{ m: 1 }} onClick={() => navigate('/owners/someId')}>Learn More</Button>
+                    <Button size="small" sx={{ m: 1 }} onClick={() => navigate('/owners/' + owner.ownerId)}>Learn More</Button>
                 </Card>
             )
         })
